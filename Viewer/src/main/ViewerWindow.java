@@ -121,6 +121,9 @@ public class ViewerWindow extends Window implements Bindable{
 				imageView.setImage(path);
 				imageMode();
 			}
+			else	{
+				Prompt.prompt("File has wrong format", ViewerWindow.this);
+			}
 		} catch (IOException e) {
 		Prompt.prompt("Error: File couln't be loaded", ViewerWindow.this);
 	 	}
