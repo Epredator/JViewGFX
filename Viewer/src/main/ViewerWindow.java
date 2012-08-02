@@ -1,7 +1,6 @@
 package main;
 
 import org.apache.pivot.wtk.*;
-import org.apache.pivot.wtk.effects.Decorator;
 import org.apache.pivot.wtk.media.Image;
 import org.apache.pivot.beans.*;
 import org.apache.pivot.collections.*;
@@ -19,6 +18,7 @@ public class ViewerWindow extends Window implements Bindable{
 	@BXML PushButton btnCopy;
 	@BXML TextArea textEditor;
 	@BXML ScrollPane textFrame;
+	@BXML PushButton btnNewWindow;
 	
 	@Override
 	public void initialize( Map<String,Object> namespace, URL url, Resources resources)	{
@@ -102,8 +102,16 @@ public class ViewerWindow extends Window implements Bindable{
 					content.putText(textEditor.getText());
 				}
 				Clipboard.setContent(content);
-				DesktopApplicationContext.setFullScreen(!DesktopApplicationContext.isFullScreen());
 				
+			}
+		});
+		
+		
+		// Handling of opening a new window
+		btnNewWindow.getButtonPressListeners().add(new ButtonPressListener() {
+			@Override
+			public void buttonPressed(Button button) {
+				openWindow();
 			}
 		});
 	}
@@ -116,7 +124,7 @@ public class ViewerWindow extends Window implements Bindable{
 				textEditor.setText(path);
 				textMode();
 			}
-			else if(path.toString().matches(".*(svg|jpg|png|bmp)"))	{
+			else if(path.toString().matches(".*(svg|jpg|png|bmp|gif)"))	{
 				System.out.println("Image loaded");
 				imageView.setImage(path);
 				imageMode();
@@ -137,5 +145,10 @@ public class ViewerWindow extends Window implements Bindable{
 		textFrame.setVisible(false);
 		textEditor.setVisible(false);
 		imageView.setVisible(true);
+	}
+	
+	public void openWindow()	{
+		String[] empty = {};
+		DesktopApplicationContext.main(Starter.class, empty);
 	}
 }

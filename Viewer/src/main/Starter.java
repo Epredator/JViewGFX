@@ -14,6 +14,7 @@ public class Starter implements Application	{
 		window.open(display);	
 	}	
 	
+	
 	@Override
 	public boolean shutdown(boolean optional)	{
 //		if (window!=null)	{

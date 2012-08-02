@@ -16,6 +16,8 @@
 				buttonData="Paste"/>
 				<PushButton bxml:id="btnCopy"
 				buttonData="Copy"/>
+				<PushButton bxml:id="btnNewWindow"
+				buttonData="Open new Window"/>
 			</BoxPane>
 		</TablePane.Row>
 		<TablePane.Row height="2*">
