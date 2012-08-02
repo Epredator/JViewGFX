@@ -1,0 +1,33 @@
+<main:ViewerWindow title="Viewer"
+	icon="@ViewerIcon.png"
+	maximized="true"
+	xmlns="org.apache.pivot.wtk"
+	xmlns:bxml="http://pivot.apache.org/bxml"
+	xmlns:main="main"> 
+	<TablePane>	
+		<columns>
+			<TablePane.Column width="1*"/>
+		</columns>
+		<TablePane.Row height="-1">
+			<BoxPane orientation="horizontal">
+				<PushButton bxml:id="btnOpenFile"
+				buttonData="Open File"/>
+				<PushButton bxml:id="btnPaste"
+				buttonData="Paste"/>
+				<PushButton bxml:id="btnCopy"
+				buttonData="Copy"/>
+			</BoxPane>
+		</TablePane.Row>
+		<TablePane.Row height="2*">
+			<StackPane>
+				<ScrollPane bxml:id="textFrame">
+					<TextArea bxml:id="textEditor"
+					visible="false"/>
+				</ScrollPane>
+				<ImageView bxml:id="imageView"
+				styles="{fill:true}"
+				visible="false"/>
+			</StackPane>
+		</TablePane.Row>
+	</TablePane>
+</main:ViewerWindow>
